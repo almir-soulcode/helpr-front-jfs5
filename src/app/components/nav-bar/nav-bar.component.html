@@ -1,0 +1,28 @@
+<mat-drawer-container autosize>
+
+    <mat-drawer #drawer mode="over">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/home" routerLinkActive="active">
+                <i class="material-icons">home</i>
+                Página principal
+            </a>
+            <a mat-list-item (click)="logout()" routerLinkActive="active">
+                <i class="material-icons">logout</i>
+                Logout
+            </a>
+        </mat-nav-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <mat-toolbar color="primary">
+            <button type="button" mat-icon-button (click)="drawer.toggle()">
+                <i class="material-icons">menu</i>
+            </button>
+        </mat-toolbar>
+        
+        <div class="container">
+            <ng-content></ng-content>
+        </div>
+    </mat-drawer-content>
+
+</mat-drawer-container>
