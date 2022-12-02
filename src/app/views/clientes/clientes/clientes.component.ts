@@ -1,3 +1,4 @@
+import { ClienteService } from './../../../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
 
@@ -11,9 +12,15 @@ export class ClientesComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'telefone', 'editar', 'excluir'];
   dataSource: Cliente[] = [];
 
-  constructor() { }
+  constructor(private clienteService: ClienteService) { }
 
   ngOnInit(): void {
+    this.initializeTable();
   }
 
+  private initializeTable(): void {
+    this.clienteService.findAll().subscribe(clientes => {
+      this.dataSource = clientes;
+    });
+  }
 }
