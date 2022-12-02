@@ -1,0 +1,30 @@
+<app-nav-bar>
+    <ng-container>
+        <h2>Cadastrar Cliente</h2>
+        <form [formGroup]="formCliente">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input type="text" name="nome" matInput placeholder="Ex. Gabriel Braga" formControlName="nome">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>CPF</mat-label>
+                <input type="text" name="cpf" matInput placeholder="Ex. 000.000.000-00" formControlName="cpf">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input type="email" name="email" matInput placeholder="Ex. gabriel@mail.com" formControlName="email">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Telefone</mat-label>
+                <input type="tel" name="telefone" matInput formControlName="telefone">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input type="password" name="senha" matInput formControlName="senha">
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="primary" (click)="create()">Cadastrar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/clientes">Cancelar</a>
+        </form>
+    </ng-container>
+</app-nav-bar>
