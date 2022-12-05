@@ -31,4 +31,14 @@ export class ClienteService {
       })
     );
   }
+
+  public delete(id: number): Observable<Cliente> {
+    return this.http.delete<Cliente>(`${API_CONFIG.baseUrl}/clientes/${id}`).pipe(
+      catchError(error => {
+        alert("Erro ao excluir cliente.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
 }
