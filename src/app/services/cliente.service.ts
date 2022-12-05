@@ -22,6 +22,16 @@ export class ClienteService {
     );
   }
 
+  public findById(id: string): Observable<Cliente> {
+    return this.http.get<Cliente>(`${API_CONFIG.baseUrl}/clientes/${id}`).pipe(
+      catchError(error => {
+        alert("Erro ao buscar dados de cliente");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
   public create(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(`${API_CONFIG.baseUrl}/clientes`, cliente).pipe(
       catchError(error => {
@@ -36,6 +46,16 @@ export class ClienteService {
     return this.http.delete<Cliente>(`${API_CONFIG.baseUrl}/clientes/${id}`).pipe(
       catchError(error => {
         alert("Erro ao excluir cliente.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
+  public update(cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(`${API_CONFIG.baseUrl}/clientes/${cliente.id}`, cliente).pipe(
+      catchError(error => {
+        alert("Erro ao editar cliente.");
         console.error(error);
         return EMPTY;
       })
