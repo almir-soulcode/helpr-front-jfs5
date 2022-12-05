@@ -1,0 +1,30 @@
+<app-nav-bar>
+    <ng-container>
+        <h2>Editar Cliente</h2>
+        <form #formEdit="ngForm">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input type="text" name="nome" matInput placeholder="Ex. Gabriel Braga" name="nome" [(ngModel)]="cliente.nome" required>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>CPF</mat-label>
+                <input type="text" name="cpf" matInput placeholder="Ex. 000.000.000-00" name="cpf" [(ngModel)]="cliente.cpf" required>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input type="email" name="email" matInput placeholder="Ex. gabriel@mail.com" name="email" [(ngModel)]="cliente.email" required email>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Telefone</mat-label>
+                <input type="tel" name="telefone" matInput name="telefone" [(ngModel)]="cliente.telefone" required>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input type="password" name="senha" matInput name="senha" [(ngModel)]="cliente.senha" required>
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="primary" (click)="update(formEdit)">Editar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/clientes">Cancelar</a>
+        </form>
+    </ng-container>
+</app-nav-bar>
