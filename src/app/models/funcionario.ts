@@ -6,5 +6,7 @@ export interface Funcionario {
     cpf: string,
     perfil: string,
     foto: string,
+    idCargo: number,
+    senha: string
 
 }
