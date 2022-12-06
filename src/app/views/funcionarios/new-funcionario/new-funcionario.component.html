@@ -1,0 +1,57 @@
+<app-nav-bar>
+    <ng-container>
+        <h2>Cadastrar Funcionário</h2>
+        <form [formGroup]="formFuncionario">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input type="text" name="nome" matInput formControlName="nome">
+                <mat-error>É obrigatório informar o nome do funcionário!</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input type="email" name="email" matInput formControlName="email">
+                <mat-error>É obrigatório informar o e-mail do funcionário corretamente!</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>CPF</mat-label>
+                <input type="text" name="cpf" matInput formControlName="cpf">
+                <mat-error>É obrigatório informar o CPF do funcionário!</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Perfil</mat-label>
+                <mat-select formControlName="perfil">
+                    <mat-option value="FUNCIONARIO">ADMIN</mat-option>
+                    <mat-option value="FUNCIONARIO">FUNCIONARIO</mat-option>
+                    <mat-option value="CLIENTE">CLIENTE</mat-option>
+                </mat-select>
+                <mat-error>É obrigatório informar o perfil do funcionário!</mat-error>                
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Cargo</mat-label>
+                <mat-select formControlName="idCargo">
+                    <mat-option *ngFor="let cargo of cargos" [value]="cargo.id">{{cargo.nome}}</mat-option>                    
+                </mat-select>
+                <mat-error>É obrigatório informar o cargo do funcionário!</mat-error>                
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Foto</mat-label>
+                <input type="text" name="foto" matInput placeholder="Ex. https://postimg.cc/image.jpeg" formControlName="foto">
+                <mat-hint>Informe endereço (URL) da foto do funcionário.</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input type="password" name="senha" matInput formControlName="senha">
+                <mat-error>É obrigatório cadastrar senha do funcionário!</mat-error>
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="primary" (click)="create()">Cadastrar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/funcionarios">Cancelar</a>
+        </form>
+    </ng-container>
+</app-nav-bar>
