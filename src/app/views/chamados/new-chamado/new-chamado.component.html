@@ -1,0 +1,26 @@
+<app-nav-bar>
+    <ng-container>
+        <h2>Cadastrar Chamado</h2>
+        <form [formGroup]="formChamado">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Título</mat-label>
+                <input type="text" name="titulo" matInput formControlName="titulo">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Descrição</mat-label>
+                <textarea name="descricao" matInput formControlName="descricao" rows="2"></textarea>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Cliente</mat-label>
+                <mat-select formControlName="cliente">
+                    <mat-option *ngFor="let cliente of clientes" [value]="cliente">
+                        {{cliente.nome}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="primary" (click)="create()">Cadastrar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/clientes">Cancelar</a>
+        </form>
+    </ng-container>
+</app-nav-bar>

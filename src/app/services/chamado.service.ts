@@ -21,4 +21,19 @@ export class ChamadoService {
       })
     );
   }
+
+  public create(chamado: Chamado): Observable<Chamado> {
+    const data = {
+      titulo: chamado.titulo,
+      descricao: chamado.descricao,
+      idCliente: chamado.cliente.id
+    }
+    return this.http.post<Chamado>(`${API_CONFIG.baseUrl}/chamados`, data).pipe(
+      catchError(error => {
+        alert("Erro ao cadastrar novo chamado.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
 }
