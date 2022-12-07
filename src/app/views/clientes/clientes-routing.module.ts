@@ -7,15 +7,18 @@ import { ClientesComponent } from './clientes/clientes.component';
 const routes: Routes = [
   {
     path: '',
-    component: ClientesComponent
+    component: ClientesComponent,
+    title: "Helpr | Clientes"
   },
   {
     path: 'new',
-    component: NewClienteComponent
+    component: NewClienteComponent,
+    title: "Helpr | Novo Cliente"
   },
   {
     path: 'edit/:id',
-    component: EditClienteComponent
+    component: EditClienteComponent,
+    title: "Helpr | Editar Cliente"
   }
 ];
 
