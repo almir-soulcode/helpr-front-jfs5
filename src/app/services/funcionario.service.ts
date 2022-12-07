@@ -23,7 +23,15 @@ export class FuncionarioService {
   }
 
   public save(funcionario: Funcionario): Observable<Funcionario> {
-    return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, funcionario).pipe(
+    const data = {
+      nome: funcionario.nome,
+      email: funcionario.email,
+      cpf: funcionario.cpf,
+      senha: funcionario.senha,
+      foto: funcionario.foto,
+      idCargo: funcionario.cargo.idCargo
+    }    
+    return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, data).pipe(
       catchError(error => {
         alert('Erro ao cadastrar funcionário!')
         console.error(error)
