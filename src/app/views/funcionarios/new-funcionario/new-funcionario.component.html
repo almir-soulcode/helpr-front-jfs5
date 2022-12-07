@@ -23,17 +23,18 @@
             <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Perfil</mat-label>
                 <mat-select formControlName="perfil">
-                    <mat-option value="FUNCIONARIO">ADMIN</mat-option>
+                    <mat-option value="ADMIN">ADMIN</mat-option>
                     <mat-option value="FUNCIONARIO">FUNCIONARIO</mat-option>
-                    <mat-option value="CLIENTE">CLIENTE</mat-option>
                 </mat-select>
                 <mat-error>É obrigatório informar o perfil do funcionário!</mat-error>                
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="fill">
                 <mat-label>Cargo</mat-label>
-                <mat-select formControlName="idCargo">
-                    <mat-option *ngFor="let cargo of cargos" [value]="cargo.id">{{cargo.nome}}</mat-option>                    
+                <mat-select formControlName="cargo">
+                    <mat-option *ngFor="let cargo of cargos" [value]="cargo">
+                        {{cargo.nome}}
+                    </mat-option>
                 </mat-select>
                 <mat-error>É obrigatório informar o cargo do funcionário!</mat-error>                
             </mat-form-field>
@@ -53,5 +54,6 @@
             <button type="submit" mat-raised-button color="primary" (click)="create()">Cadastrar</button>
             <a type="button" mat-raised-button color="warn" routerLink="/funcionarios">Cancelar</a>
         </form>
+        <h3>{{formFuncionario.value | json}}</h3>
     </ng-container>
 </app-nav-bar>
