@@ -1,6 +1,6 @@
 export interface Cargo {
 
-    id?: number,
+    idCargo?: number,
     nome: string,
     descricao: string,
     salario: number    
