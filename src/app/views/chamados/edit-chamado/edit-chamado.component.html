@@ -1,0 +1,43 @@
+<app-nav-bar>
+    <ng-container>
+        <h2>Editar Chamado</h2>
+        <form #formEdit="ngForm">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Título</mat-label>
+                <input type="text" name="titulo" matInput [(ngModel)]="chamado.titulo" required>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Descrição</mat-label>
+                <textarea name="descricao" matInput rows="2"  [(ngModel)]="chamado.descricao" required></textarea>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Cliente</mat-label>
+                <mat-select name="cliente" [(value)]="chamado.cliente.id" required>
+                    <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">
+                        {{cliente.nome}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Funcionário</mat-label>
+                <mat-select name="funcionario" [(value)]="chamado.funcionario.id" required>
+                    <mat-option *ngFor="let funcionario of funcionarios" [value]="funcionario.id">
+                        {{funcionario.nome}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Status</mat-label>
+                <mat-select name="status" [(value)]="chamado.status" required>
+                    <mat-option value="RECEBIDO">RECEBIDO</mat-option>
+                    <mat-option value="ATRIBUIDO">ATRIBUIDO</mat-option>
+                    <mat-option value="CONCLUIDO">CONCLUIDO</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="primary" (click)="update(formEdit)">Editar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/chamados">Cancelar</a>
+        </form>
+        <h2>{{ chamado | json }}</h2>
+    </ng-container>
+</app-nav-bar>
