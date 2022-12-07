@@ -28,7 +28,7 @@ export class NewFuncionarioComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required]],
       perfil: ['', [Validators.required]],
-      idCargo: ['', [Validators.required]],
+      cargo: ['', [Validators.required]],
       foto: [''],
       senha: ['', [Validators.required]]
     })
