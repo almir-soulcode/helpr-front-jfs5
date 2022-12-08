@@ -4,18 +4,21 @@ import { Cliente } from 'src/app/models/cliente';
 import { API_CONFIG } from './../config/api.config';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClienteService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private toastr: ToastrService
+    ) { }
 
   public findAll(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(`${API_CONFIG.baseUrl}/clientes`).pipe(
       catchError(error => {
-        alert("Erro ao buscar dados de clientes");
+        this.toastr.error("Erro ao buscar dados de clientes");
         console.error(error);
         return EMPTY;
       })
@@ -25,7 +28,7 @@ export class ClienteService {
   public findById(id: string): Observable<Cliente> {
     return this.http.get<Cliente>(`${API_CONFIG.baseUrl}/clientes/${id}`).pipe(
       catchError(error => {
-        alert("Erro ao buscar dados de cliente");
+        this.toastr.error("Erro ao buscar dados de cliente");
         console.error(error);
         return EMPTY;
       })
@@ -35,7 +38,7 @@ export class ClienteService {
   public create(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(`${API_CONFIG.baseUrl}/clientes`, cliente).pipe(
       catchError(error => {
-        alert("Erro ao criar novo cliente.");
+        this.toastr.error("Erro ao criar novo cliente.");
         console.error(error);
         return EMPTY;
       })
@@ -45,7 +48,7 @@ export class ClienteService {
   public delete(id: number): Observable<Cliente> {
     return this.http.delete<Cliente>(`${API_CONFIG.baseUrl}/clientes/${id}`).pipe(
       catchError(error => {
-        alert("Erro ao excluir cliente.");
+        this.toastr.error("Erro ao excluir cliente.");
         console.error(error);
         return EMPTY;
       })
@@ -55,7 +58,7 @@ export class ClienteService {
   public update(cliente: Cliente): Observable<Cliente> {
     return this.http.put<Cliente>(`${API_CONFIG.baseUrl}/clientes/${cliente.id}`, cliente).pipe(
       catchError(error => {
-        alert("Erro ao editar cliente.");
+        this.toastr.error("Erro ao editar cliente.");
         console.error(error);
         return EMPTY;
       })

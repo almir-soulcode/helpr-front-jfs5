@@ -3,6 +3,7 @@ import { ClienteService } from './../../../services/cliente.service';
 import { Cliente } from 'src/app/models/cliente';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-new-cliente',
@@ -16,7 +17,8 @@ export class NewClienteComponent implements OnInit {
   constructor(
     formBuilder: FormBuilder,
     private clienteService: ClienteService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.formCliente = formBuilder.group({
       nome: ["", [Validators.required]],
@@ -34,12 +36,12 @@ export class NewClienteComponent implements OnInit {
     if(this.formCliente.valid) {
       const cliente: Cliente = this.formCliente.value;
       this.clienteService.create(cliente).subscribe(response => {
-        alert("Cliente cadastrado com sucesso!");
+        this.toastr.success("Cliente cadastrado com sucesso!");
         this.router.navigate(["/clientes"]);
       });
     }
     else {
-      alert("Dados inválidos.");
+      this.toastr.error("Dados inválidos.");
     }
   }
 }
