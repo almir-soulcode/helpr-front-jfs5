@@ -7,11 +7,13 @@ import { ChamadosComponent } from './chamados/chamados.component';
 const routes: Routes = [
   {
     path: '',
-    component: ChamadosComponent
+    component: ChamadosComponent,
+    title: "Helpr | Chamados"
   },
   {
     path: 'new',
-    component: NewChamadoComponent
+    component: NewChamadoComponent,
+    title: "Helpr | Novo Chamado"
   },
   {
     path: 'edit/:id',
