@@ -1,0 +1,46 @@
+<app-nav-bar>
+    <ng-container>
+        <div class="container-title">
+            <h2>Futuros Clientes</h2>
+        </div>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let futuroCliente"> {{futuroCliente.idFuturoCliente}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let futuroCliente"> {{futuroCliente.nome}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cpf">
+                <th mat-header-cell *matHeaderCellDef> CPF </th>
+                <td mat-cell *matCellDef="let futuroCliente"> {{futuroCliente.cpf}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> E-mail </th>
+                <td mat-cell *matCellDef="let futuroCliente"> {{futuroCliente.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="telefone">
+                <th mat-header-cell *matHeaderCellDef> Telefone </th>
+                <td mat-cell *matCellDef="let futuroCliente"> {{futuroCliente.telefone}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="excluir">
+                <th mat-header-cell *matHeaderCellDef> Excluir </th>
+                <td mat-cell *matCellDef="let futuroCliente">
+                    <button mat-icon-button (click)="delete(futuroCliente.idFuturoCliente)">
+                        <i class="material-icons">delete</i>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </ng-container>
+</app-nav-bar>
