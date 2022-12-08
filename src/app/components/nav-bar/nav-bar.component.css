@@ -13,6 +13,7 @@ mat-nav-list a i {
 
 .active {
     font-weight: bold;
+    color: blue;
 }
 
 .container {
@@ -20,3 +21,4 @@ mat-nav-list a i {
     margin: 50px auto 0 auto;
     padding: 0 30px;
 }
+
