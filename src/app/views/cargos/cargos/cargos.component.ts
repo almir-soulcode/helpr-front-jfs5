@@ -26,6 +26,13 @@ export class CargosComponent implements OnInit {
   }
 
   delete(id: number): void{
+    this.cargoService.delete(id).subscribe(
+      () => { 
+        this.initializeTable()
+        alert(`Cargo excluido com sucesso`)
+      }
+    )
+
   }
 
 }
