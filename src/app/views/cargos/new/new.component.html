@@ -1,0 +1,21 @@
+<app-nav-bar>
+    <ng-container>
+        <h2>Cadastrar Cargos</h2>
+        <form [formGroup]="formCargo">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input type="text" name="nome" matInput formControlName="nome">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Descrição</mat-label>
+                <input type="text" name="descricao" matInput formControlName="descricao">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Salário</mat-label>
+                <input type="number" name="salario" matInput formControlName="salario">
+            </mat-form-field> 
+            <button type="submit" mat-raised-button color="primary" (click)="create()">Cadastrar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/clientes">Cancelar</a>
+        </form>
+    </ng-container>
+</app-nav-bar>
