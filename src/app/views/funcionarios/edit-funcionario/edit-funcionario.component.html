@@ -1,0 +1,33 @@
+<app-nav-bar>
+    <ng-container>
+        <h2>Editar funcionário</h2>
+        <form #formEdit="ngForm">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input type="text" name="nome" matInput placeholder="Ex. Gabriel Braga" name="nome" [(ngModel)]="funcionario.nome" required>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>CPF</mat-label>
+                <input type="text" name="cpf" matInput placeholder="Ex. 000.000.000-00" name="cpf" [(ngModel)]="funcionario.cpf" required>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input type="email" name="email" matInput placeholder="Ex. gabriel@mail.com" name="email" [(ngModel)]="funcionario.email" required email>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Cargo</mat-label>
+                <mat-select [(value)]="funcionario.cargo.idCargo">
+                    <mat-option *ngFor="let cargo of cargos" [value]="cargo.idCargo">{{ cargo.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input type="password" name="senha" matInput name="senha" [(ngModel)]="funcionario.senha" required>
+            </mat-form-field>
+
+            <button type="submit" mat-raised-button color="primary" (click)="update(formEdit)">Editar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/funcionarios">Cancelar</a>
+        </form>
+    </ng-container>
+</app-nav-bar>
+

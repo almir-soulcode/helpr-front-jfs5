@@ -23,9 +23,15 @@ export class FuncionarioService {
       })
     )
   }
-
-<<<<<<< HEAD
-=======
+  public findById(id: string): Observable<Funcionario> {
+    return this.http.get<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
+      catchError(error => {
+        alert("Erro ao buscar dados de funcionários!");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
   public create(funcionario: Funcionario): Observable<Funcionario> {
     const data = {
       nome: funcionario.nome, 
@@ -44,7 +50,31 @@ export class FuncionarioService {
     );
   }
 
-  
+  public delete(id: number): Observable<Funcionario> {
+    return this.http.delete<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
+      catchError(error => {
+        alert("Erro ao excluir funcionário.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
 
->>>>>>> de618a14d8e0ce359bc41b2781edf78a3e3e7f5e
+  public update(funcionario: Funcionario): Observable<Funcionario> {
+    const data = {
+      nome: funcionario.nome, 
+      email: funcionario.email,
+      cpf: funcionario.cpf,
+      senha: funcionario.senha,
+      foto: funcionario.foto,
+      idCargo: funcionario.cargo.idCargo
+    }
+    return this.http.put<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${funcionario.id}`, data).pipe(
+      catchError(error => {
+        alert("Erro ao editar funcionário.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
 }
