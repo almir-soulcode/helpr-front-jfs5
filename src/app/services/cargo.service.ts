@@ -21,5 +21,9 @@ export class CargoService {
     )
   }
 
-  //findall
+  //findById(id: number)
+
+  //update(id: number)
+
+  //delete(id: number)
 }
