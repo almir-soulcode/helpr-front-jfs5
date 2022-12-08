@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +18,8 @@ import { JwtModule } from '@auth0/angular-jwt';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    JwtModule
+    JwtModule,
+    FormsModule
   ],
   providers: [
     {

@@ -29,9 +29,13 @@ const routes: Routes = [
     loadChildren: () => import('./views/chamados/chamados.module').then(m => m.ChamadosModule),
     title: "Helpr | Chamados"
   },
-  { path: 'funcionarios', 
-  loadChildren: () => import('./views/funcionario/funcionario.module').then(m => m.FuncionarioModule) 
-  }
+  { path: 'funcionarios',
+  loadChildren: () => import('./views/funcionario/funcionario.module').then(m => m.FuncionarioModule)
+  },
+  { path: 'cargos',
+  loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule)
+  },
+
 ];
 
 @NgModule({

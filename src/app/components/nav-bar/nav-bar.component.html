@@ -13,11 +13,16 @@
             <a mat-list-item routerLink="/chamados" routerLinkActive="active">
                 <i class="material-icons">perm_phone_msg</i>
                 Chamados
-            </a>            
-            <a mat-list-item routerLink="/funcionarios" routerLinkActive="active">
-                <i class="material-icons">man 2</i>
-                Funcionarios
             </a>
+            <a mat-list-item routerLink="/funcionarios" routerLinkActive="active">
+              <i class="material-icons">person_2</i>
+              Funcionários
+          </a>
+            <a mat-list-item routerLink="/cargos" routerLinkActive="active">
+              <i class="material-icons">badge</i>
+              Cargos
+          </a>
+
             <a mat-list-item (click)="logout()" routerLinkActive="active">
                 <i class="material-icons">logout</i>
                 Logout
@@ -31,7 +36,7 @@
                 <i class="material-icons">menu</i>
             </button>
         </mat-toolbar>
-        
+
         <div class="container">
             <ng-content></ng-content>
         </div>
