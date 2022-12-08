@@ -9,7 +9,7 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
 })
 export class FuncionariosComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'email', 'cpf', 'perfil', 'foto', 'editar', 'excluir'];
+  displayedColumns: string[] = ['id', 'nome', 'email', 'cpf', 'cargo', 'foto', 'editar', 'excluir'];
   dataSource: Funcionario[] = [];
 
   constructor(private funcionarioService: FuncionarioService) { }

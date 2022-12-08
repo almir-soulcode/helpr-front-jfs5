@@ -23,7 +23,7 @@ export class FuncionarioService {
   }
 
   public save(funcionario: Funcionario): Observable<Funcionario> {
-    const data = {
+    const funcionarioDTO = {
       nome: funcionario.nome,
       email: funcionario.email,
       cpf: funcionario.cpf,
@@ -31,13 +31,43 @@ export class FuncionarioService {
       foto: funcionario.foto,
       idCargo: funcionario.cargo.idCargo
     }    
-    return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, data).pipe(
+    return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, funcionarioDTO).pipe(
       catchError(error => {
         alert('Erro ao cadastrar funcionário!')
         console.error(error)
         return EMPTY
       })
     )
+  }
+
+  public findById(id: string): Observable<Funcionario> {
+    return this.http.get<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
+      catchError(error => {
+        alert("Erro ao buscar funcionário por id!");
+        console.error(error);
+        return EMPTY;
+      })
+    )
+  }
+
+  public update(funcionario: Funcionario): Observable<Funcionario> {
+    const funcionarioDTO = {
+      nome: funcionario.nome,
+      email: funcionario.email,
+      cpf: funcionario.cpf,
+      senha: funcionario.senha,
+      foto: funcionario.foto,
+      idCargo: funcionario.cargo.idCargo
+    } 
+    alert
+    return this.http.put<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${funcionario.id}`, funcionarioDTO).pipe(
+      catchError(error => {
+        alert("Erro ao atualizar funcionário!");
+        console.error(error);
+        return EMPTY;
+      })
+    )
+
   }
 
   public delete(id: number): Observable<Funcionario> {
