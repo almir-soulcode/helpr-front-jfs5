@@ -1,3 +1,4 @@
+import { EditChamadoComponent } from './edit-chamado/edit-chamado.component';
 import { NewChamadoComponent } from './new-chamado/new-chamado.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -13,6 +14,10 @@ const routes: Routes = [
     path: 'new',
     component: NewChamadoComponent,
     title: "Helpr | Novo Chamado"
+  },
+  {
+    path: 'edit/:id',
+    component: EditChamadoComponent
   }
 ];
 
