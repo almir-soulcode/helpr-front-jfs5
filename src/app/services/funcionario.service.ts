@@ -26,7 +26,7 @@ export class FuncionarioService {
   public findById(id: string): Observable<Funcionario> {
     return this.http.get<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
       catchError(error => {
-        alert("Erro ao buscar dados de funcionários!");
+        this.toastr.error("Erro ao buscar dados de funcionários!");
         console.error(error);
         return EMPTY;
       })
@@ -43,7 +43,7 @@ export class FuncionarioService {
     }
     return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, data).pipe(
       catchError(error => {
-        alert("Erro ao criar novo funcionário.");
+        this.toastr.error("Erro ao criar novo funcionário.");
         console.error(error);
         return EMPTY;
       })
@@ -53,7 +53,7 @@ export class FuncionarioService {
   public delete(id: number): Observable<Funcionario> {
     return this.http.delete<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
       catchError(error => {
-        alert("Erro ao excluir funcionário.");
+        this.toastr.error("Erro ao excluir funcionário.");
         console.error(error);
         return EMPTY;
       })
@@ -71,7 +71,7 @@ export class FuncionarioService {
     }
     return this.http.put<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${funcionario.id}`, data).pipe(
       catchError(error => {
-        alert("Erro ao editar funcionário.");
+        this.toastr.error("Erro ao editar funcionário.");
         console.error(error);
         return EMPTY;
       })

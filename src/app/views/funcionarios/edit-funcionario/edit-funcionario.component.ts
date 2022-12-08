@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Funcionario } from 'src/app/models/funcionario';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-funcionario',
@@ -25,7 +26,8 @@ export class EditFuncionarioComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private funcionarioService: FuncionarioService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -64,12 +66,12 @@ export class EditFuncionarioComponent implements OnInit {
   public update(formEdit: NgForm): void {
     if(formEdit.valid) {
       this.funcionarioService.update(this.funcionario).subscribe(() => {
-        alert("Funcionário editado.");
+        this.toastr.success("Funcionário editado.");
         this.router.navigate(["/funcionarios"]);
       });
     }
     else {
-      alert("Dados inválidos.");
+      this.toastr.error("Dados inválidos.");
     }
   }
 
