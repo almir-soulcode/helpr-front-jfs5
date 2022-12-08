@@ -8,10 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 
+
 @NgModule({
   declarations: [
-    AppComponent,
-    
+    AppComponent
+        
   ],
   imports: [
     BrowserModule,
