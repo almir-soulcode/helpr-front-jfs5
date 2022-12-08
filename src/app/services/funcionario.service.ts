@@ -22,6 +22,24 @@ export class FuncionarioService {
     )
   }
 
+  public create(funcionario: Funcionario): Observable<Funcionario> {
+    const data = {
+      nome: funcionario.nome, 
+      email: funcionario.email,
+      cpf: funcionario.cpf,
+      senha: funcionario.senha,
+      foto: funcionario.foto,
+      idCargo: funcionario.cargo.idCargo
+    }
+    return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, data).pipe(
+      catchError(error => {
+        alert("Erro ao criar novo funcionário.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
   
 
 }

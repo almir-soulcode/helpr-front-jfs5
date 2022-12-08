@@ -6,11 +6,13 @@ import { FuncionariosComponent } from './funcionarios/funcionarios.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewFuncionarioComponent } from './new-funcionario/new-funcionario.component';
 
 
 @NgModule({
   declarations: [
-    FuncionariosComponent
+    FuncionariosComponent,
+    NewFuncionarioComponent
   ],
   imports: [
     CommonModule,
