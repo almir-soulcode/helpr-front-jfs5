@@ -24,7 +24,9 @@ import { EditChamadoComponent } from './edit-chamado/edit-chamado.component';
     ComponentsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    
   ]
 })
 export class ChamadosModule { }
