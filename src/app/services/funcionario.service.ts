@@ -4,24 +4,28 @@ import { Observable, EMPTY } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Funcionario } from '../models/funcionario';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FuncionarioService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private toastr: ToastrService  ) { }
 
   public findAll(): Observable<Funcionario[]> {
     return this.http.get<Funcionario[]>(`${API_CONFIG.baseUrl}/funcionarios`).pipe(
       catchError(error => {
-        alert("Erro ao buscar funcionário!");
+        this.toastr.error("Erro ao buscar funcionário!");
         console.error(error);
         return EMPTY;
       })
     )
   }
 
+<<<<<<< HEAD
+=======
   public create(funcionario: Funcionario): Observable<Funcionario> {
     const data = {
       nome: funcionario.nome, 
@@ -42,4 +46,5 @@ export class FuncionarioService {
 
   
 
+>>>>>>> de618a14d8e0ce359bc41b2781edf78a3e3e7f5e
 }
