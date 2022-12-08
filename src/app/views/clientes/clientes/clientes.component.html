@@ -7,7 +7,11 @@
             </a>
         </div>
       
-
+        <mat-form-field class="full-width">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+          </mat-form-field>
+                    
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <ng-container matColumnDef="id">
@@ -55,6 +59,10 @@
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">Objeto não encontrado "{{input.value}}"</td>
+            </tr>
         </table>
     </ng-container>
 </app-nav-bar>
