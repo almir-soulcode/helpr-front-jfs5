@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class FuncionarioService {
 
   constructor(private http: HttpClient,
-    private toastr: ToastrService  ) { }
+    private toastr: ToastrService) { }
 
   public findAll(): Observable<Funcionario[]> {
     return this.http.get<Funcionario[]>(`${API_CONFIG.baseUrl}/funcionarios`).pipe(
@@ -23,10 +23,18 @@ export class FuncionarioService {
       })
     )
   }
-
+  public findById(id: string): Observable<Funcionario> {
+    return this.http.get<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
+      catchError(error => {
+        alert("Erro ao buscar dados de funcionários!");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
   public create(funcionario: Funcionario): Observable<Funcionario> {
     const data = {
-      nome: funcionario.nome, 
+      nome: funcionario.nome,
       email: funcionario.email,
       cpf: funcionario.cpf,
       senha: funcionario.senha,
@@ -42,4 +50,33 @@ export class FuncionarioService {
     );
   }
 
+  public delete(id: number): Observable<Funcionario> {
+    return this.http.delete<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
+      catchError(error => {
+        alert("Erro ao excluir funcionário.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
+  public update(funcionario: Funcionario): Observable<Funcionario> {
+    const data = {
+      nome: funcionario.nome,
+      email: funcionario.email,
+      cpf: funcionario.cpf,
+      senha: funcionario.senha,
+      foto: funcionario.foto,
+      idCargo: funcionario.cargo.idCargo
+    }
+    return this.http.put<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${funcionario.id}`, data).pipe(
+      catchError(error => {
+        alert("Erro ao editar funcionário.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
 }
+
+

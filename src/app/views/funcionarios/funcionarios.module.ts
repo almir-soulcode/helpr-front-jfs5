@@ -7,12 +7,14 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewFuncionarioComponent } from './new-funcionario/new-funcionario.component';
+import { EditFuncionarioComponent } from './edit-funcionario/edit-funcionario.component';
 
 
 @NgModule({
   declarations: [
     FuncionariosComponent,
-    NewFuncionarioComponent
+    NewFuncionarioComponent,
+    EditFuncionarioComponent
   ],
   imports: [
     CommonModule,

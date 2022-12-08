@@ -29,6 +29,17 @@ export class FuncionariosComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  public delete(id: number): void {
+    let ok = confirm("tem certeza que deseja excluir?");
+    if(ok) {
+      this.funcionarioService.delete(id).subscribe(() => {
+        alert("Funcionário excluido.");
+        this.initializeTable();
+      });
+    }
+  }
+
   
 
 }
