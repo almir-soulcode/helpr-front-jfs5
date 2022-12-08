@@ -9,6 +9,7 @@
             <mat-label>Senha</mat-label>
             <input type="password" matInput placeholder="Senha" formControlName="senha">
         </mat-form-field>
+        <mat-checkbox [(ngModel)]="checkBoxValue" [ngModelOptions]="{standalone: true}">Lembrar de mim</mat-checkbox>
         <button type="submit" mat-raised-button color="primary" class="full-width" (click)="signIn()">
             Entrar
         </button>
