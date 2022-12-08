@@ -52,6 +52,7 @@
             ],
             "styles": [
               "src/custom-theme.scss",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
             "scripts": []

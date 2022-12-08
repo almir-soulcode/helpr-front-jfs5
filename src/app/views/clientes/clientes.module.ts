@@ -8,6 +8,7 @@ import { ClientesRoutingModule } from './clientes-routing.module';
 import { ClientesComponent } from './clientes/clientes.component';
 import { NewClienteComponent } from './new-cliente/new-cliente.component';
 import { EditClienteComponent } from './edit-cliente/edit-cliente.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { EditClienteComponent } from './edit-cliente/edit-cliente.component';
     ComponentsModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ]
 })
 export class ClientesModule { }
