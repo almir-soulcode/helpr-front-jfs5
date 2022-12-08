@@ -23,7 +23,7 @@ export class FuncionarioComponent implements OnInit {
       this.dataSource = funcionarios;
     });
   }
-  
+
   public delete(id: number): void {
     let ok = confirm("Tem certeza que deseja excluir?");
     if(ok) {
