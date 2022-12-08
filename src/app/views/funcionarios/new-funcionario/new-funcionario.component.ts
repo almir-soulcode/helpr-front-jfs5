@@ -3,6 +3,7 @@ import { FuncionarioService } from '../../../services/funcionario.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Funcionario } from 'src/app/models/funcionario';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-new-funcionario',
@@ -17,7 +18,8 @@ export class NewFuncionarioComponent implements OnInit {
 
   constructor(formBuilder: FormBuilder,
     private funcionarioService: FuncionarioService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
     ) {
       this.formFuncionario = formBuilder.group({
         nome: ["", [Validators.required]],
@@ -53,12 +55,12 @@ export class NewFuncionarioComponent implements OnInit {
     if(this.formFuncionario.valid) {
       const funcionario: Funcionario = this.formFuncionario.value;
       this.funcionarioService.create(funcionario).subscribe(response => {
-        alert("Funcionário cadastrado com sucesso!");
+        this.toastr.success("Funcionário cadastrado com sucesso!");
         this.router.navigate(["/funcionarios"]);
       });
     }
     else {
-      alert("Dados inválidos.");
+      this.toastr.error("Dados inválidos.");
     }
   }
 
