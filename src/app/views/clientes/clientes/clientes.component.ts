@@ -1,6 +1,8 @@
 import { ClienteService } from './../../../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailsClientesComponent } from 'src/app/components/details-clientes/details-clientes.component';
 
 @Component({
   selector: 'app-clientes',
@@ -9,10 +11,10 @@ import { Cliente } from 'src/app/models/cliente';
 })
 export class ClientesComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'telefone', 'editar', 'excluir'];
+  displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'telefone', 'detalhes', 'editar', 'excluir'];
   dataSource: Cliente[] = [];
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(private clienteService: ClienteService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.initializeTable();
@@ -32,5 +34,11 @@ export class ClientesComponent implements OnInit {
         this.initializeTable();
       });
     }
+  }
+  public openDetails(clientes: Cliente): void{
+    this.dialog.open(DetailsClientesComponent, {
+      width: "400px",
+      data: clientes
+    });
   }
 }
