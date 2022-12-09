@@ -35,8 +35,8 @@
 
             <ng-container matColumnDef="editar">
                 <th mat-header-cell *matHeaderCellDef> Editar </th>
-                <td mat-cell *matCellDef="let cliente">
-                    <a mat-icon-button [routerLink]="['edit', cliente.id]">
+                <td mat-cell *matCellDef="let cargo">
+                    <a mat-icon-button [routerLink]="['edit', cargo.id]">
                         <i class="material-icons">edit</i>
                     </a>
                 </td>
@@ -44,7 +44,7 @@
 
             <ng-container matColumnDef="excluir">
                 <th mat-header-cell *matHeaderCellDef> Excluir </th>
-                <td mat-cell *matCellDef="let cliente">
+                <td mat-cell *matCellDef="let cargo">
                     <button mat-icon-button>
                         <i class="material-icons">delete</i>
                     </button>
@@ -53,10 +53,6 @@
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-            <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" colspan="4">Objeto não encontrado "{{input.value}}"</td>
-            </tr>
             
         </table>
     </ng-container>

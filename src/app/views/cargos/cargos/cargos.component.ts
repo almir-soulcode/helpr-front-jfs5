@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { CargoService } from 'src/app/services/cargo.service';
 import { Cargo } from './../../../models/cargo';
 
 
@@ -14,9 +15,17 @@ export class CargosComponent implements OnInit {
   cargo: Cargo[] = [];
   dataSource = new MatTableDataSource<Cargo>(this.cargo);
 
-  constructor() { }
+  constructor(private cargoService: CargoService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.initializeTable();
+  }
+
+  private initializeTable(): void {
+    this.cargoService.findAll().subscribe(cargo => {
+      this.dataSource = new MatTableDataSource<Cargo>(cargo);
+    });
+  }
 
 
   applyFilter(event: Event) {
