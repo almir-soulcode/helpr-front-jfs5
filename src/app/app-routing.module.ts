@@ -28,6 +28,7 @@ const routes: Routes = [
     path: 'cargos',
     loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule)
   },
+  { path: 'faq', loadChildren: () => import('./views/faq/faq.module').then(m => m.FaqModule) },
 ];
 
 @NgModule({
