@@ -22,10 +22,30 @@ export class CargoService {
     );
   }
 
+  public findById(idCargo: string): Observable<Cargo> {
+    return this.http.get<Cargo>(`${API_CONFIG.baseUrl}/cargos/${idCargo}`).pipe(
+      catchError(error => {
+        alert("Erro ao buscar dados do cargo");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
   public create(cargo: Cargo): Observable<Cargo> {
     return this.http.post<Cargo>(`${API_CONFIG.baseUrl}/cargos`, cargo).pipe(
       catchError(error => {
         alert("Erro ao criar novo cargo.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
+  public update(cargo: Cargo): Observable<Cargo> {
+    return this.http.put<Cargo>(`${API_CONFIG.baseUrl}/cargos/${cargo.idCargo}`, cargo).pipe(
+      catchError(error => {
+        alert("Erro ao editar o cargo.");
         console.error(error);
         return EMPTY;
       })
