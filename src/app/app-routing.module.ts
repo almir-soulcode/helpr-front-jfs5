@@ -35,6 +35,9 @@ const routes: Routes = [
   { path: 'cargos',
   loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule)
   },
+  { path: 'perfil',
+   loadChildren: () => import('./views/funcionario/perfil.module').then(m => m.PerfilModule)
+   },
 
 ];
 

@@ -20,6 +20,7 @@ import { JwtModule } from '@auth0/angular-jwt';
     HttpClientModule,
     JwtModule,
     FormsModule
+   
   ],
   providers: [
     {
@@ -31,3 +32,4 @@ import { JwtModule } from '@auth0/angular-jwt';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
