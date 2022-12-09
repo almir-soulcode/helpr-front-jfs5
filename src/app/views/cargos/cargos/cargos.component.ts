@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CargosComponent implements OnInit {
 
+  public isLoadTable: boolean = false;
+
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'salario', 'editar', 'excluir'];
   dataSource: Cargo[] = []
   constructor(private cargoService: CargoService) { }
@@ -18,8 +20,10 @@ export class CargosComponent implements OnInit {
   }
 
   private initializeTable(): void {
+    this.isLoadTable = true;
     this.cargoService.findAll().subscribe(cargos => {
       this.dataSource = cargos;
+      this.isLoadTable = false;
     });
   }
 }
