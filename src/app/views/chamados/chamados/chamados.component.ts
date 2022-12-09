@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChamadosComponent implements OnInit {
 
+  public isLoadTable: boolean = false;
+
   displayedColumns: string[] = ['id', 'titulo', 'cliente', 'funcionario', 'dataAbertura', 'status', 'editar', 'detalhes'];
   dataSource: Chamado[] = [];
 
@@ -19,8 +21,10 @@ export class ChamadosComponent implements OnInit {
   }
 
   private initializeTable(): void {
+    this.isLoadTable = true;
     this.chamadoService.findAll().subscribe(chamados => {
       this.dataSource = chamados;
+      this.isLoadTable = false;
     });
   }
 }
