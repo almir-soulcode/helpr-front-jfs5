@@ -35,9 +35,8 @@ const routes: Routes = [
   { path: 'cargos',
   loadChildren: () => import('./views/cargos/cargos.module').then(m => m.CargosModule)
   },
-  { path: 'perfil',
-   loadChildren: () => import('./views/funcionario/perfil.module').then(m => m.PerfilModule)
-   },
+
+  { path: 'faq', loadChildren: () => import('./views/faq/faq.module').then(m => m.FaqModule) },
 
 ];
 
@@ -46,3 +45,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+

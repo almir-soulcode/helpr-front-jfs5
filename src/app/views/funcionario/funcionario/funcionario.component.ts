@@ -9,6 +9,8 @@ import { FuncionarioService } from 'src/app/services/funcionario.service';
 })
 export class FuncionarioComponent implements OnInit {
 
+  public isLoadTable: boolean = false;
+
   displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'telefone', 'editar', 'excluir'];
   dataSource: Funcionario[] = [];
 
@@ -19,8 +21,10 @@ export class FuncionarioComponent implements OnInit {
   }
 
   private initializeTable(): void {
+    this.isLoadTable = true;
     this.funcionarioService.findAll().subscribe(funcionarios => {
       this.dataSource = funcionarios;
+      this.isLoadTable = false;
     });
   }
 

@@ -1,4 +1,5 @@
-import { FormsModule } from '@angular/forms';
+import { NewCargoComponent } from '../new-cargo/new-cargo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../../shared/material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,6 +12,7 @@ import { ComponentsModule } from "../../components/components.module";
 @NgModule({
     declarations: [
         CargosComponent,
+        NewCargoComponent
     ],
     imports: [
         CommonModule,
@@ -19,7 +21,7 @@ import { ComponentsModule } from "../../components/components.module";
         MaterialModule,
         FormsModule,
         ComponentsModule,
-
+        ReactiveFormsModule
     ]
 })
 export class CargosModule { }
