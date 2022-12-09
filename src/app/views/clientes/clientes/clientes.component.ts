@@ -12,6 +12,8 @@ export class ClientesComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'telefone', 'editar', 'excluir'];
   dataSource: Cliente[] = [];
 
+  public isLoadTable: boolean = false;
+
   constructor(private clienteService: ClienteService) { }
 
   ngOnInit(): void {
@@ -19,8 +21,10 @@ export class ClientesComponent implements OnInit {
   }
 
   private initializeTable(): void {
+    this.isLoadTable = true;
     this.clienteService.findAll().subscribe(clientes => {
       this.dataSource = clientes;
+      this.isLoadTable = false;
     });
   }
 

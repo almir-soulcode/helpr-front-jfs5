@@ -6,3 +6,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .full-width {
     width: 100%;
 }
+
+.spinner {
+    margin: 0 auto;
+}
