@@ -21,4 +21,14 @@ export class CargoService {
       })
     );
   }
+
+  public create(cargo: Cargo): Observable<Cargo> {
+    return this.http.post<Cargo>(`${API_CONFIG.baseUrl}/cargos`, cargo).pipe(
+      catchError(error => {
+        alert("Erro ao criar novo cargo.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
 }
