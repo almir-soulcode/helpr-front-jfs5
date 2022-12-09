@@ -40,7 +40,31 @@ export class CargoService {
       })
     )
   }
+  public update(cargo: Cargo): Observable<Cargo> {
+    const cargoDTO = {
+      nome: cargo.nome,
+      descricao: cargo.descricao,
+      salario: cargo.salario
+    } 
+    alert
+    return this.http.put<Cargo>(`${API_CONFIG.baseUrl}/cargos/${cargo.idCargo}`, cargoDTO).pipe(
+      catchError(error => {
+        alert("Erro ao atualizar cargo!");
+        console.error(error);
+        return EMPTY;
+      })
+    )
 
+  }
+  public findById(id: string): Observable<Cargo> {
+    return this.http.get<Cargo>(`${API_CONFIG.baseUrl}/cargos/${id}`).pipe(
+      catchError(error => {
+        alert("Erro ao buscar dados de cargos");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
   //findById(id: number)
 
   //update(id: number)
