@@ -9,19 +9,27 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FuturoClienteService {
-  delete(id: number) {
-    throw new Error('Method not implemented.');
-  }
-
+  
   constructor(private http: HttpClient) { }
 
   public findAll(): Observable<FuturoCliente[]> {
     return this.http.get<FuturoCliente[]>(`${API_CONFIG.baseUrl}/futurocliente`).pipe(
       catchError(error => {
-        alert("Erro ao buscar futuro clientes");
+        alert("Erro ao buscar futuro cliente");
         console.error(error);
         return EMPTY;
       })
     );
   }
+
+  public delete(id: number): Observable<FuturoCliente> {
+    return this.http.delete<FuturoCliente>(`${API_CONFIG.baseUrl}/futurocliente/${id}`).pipe(
+      catchError(error => {
+        alert("Erro ao excluir futuro cliente!");
+        console.error(error);
+        return EMPTY;
+      })
+    )
+  }
+
 }

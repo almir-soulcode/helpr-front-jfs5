@@ -24,8 +24,12 @@ export class FuturoclienteComponent implements OnInit {
     });
   }
   delete(id: number){
-    
+    this.FuturoClienteService.delete(id).subscribe(
+      () => this.initializeTable()
+    )
   }
+    
+  
 }
 
 
