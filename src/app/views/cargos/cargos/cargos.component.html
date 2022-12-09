@@ -30,7 +30,7 @@
 
         <ng-container matColumnDef="editar">
             <th mat-header-cell *matHeaderCellDef> Editar </th>
-            <td mat-cell *matCellDef="let cliente">
+            <td mat-cell *matCellDef="let cargo">
                 <a mat-icon-button>
                     <i class="material-icons">edit</i>
                 </a>
@@ -39,8 +39,8 @@
 
         <ng-container matColumnDef="excluir">
             <th mat-header-cell *matHeaderCellDef> Excluir </th>
-            <td mat-cell *matCellDef>
-                <button mat-icon-button>
+            <td mat-cell *matCellDef="let cargo">
+                <button mat-icon-button (click)="delete(cargo.idCargo)">
                     <i class="material-icons">delete</i>
                 </button>
             </td>

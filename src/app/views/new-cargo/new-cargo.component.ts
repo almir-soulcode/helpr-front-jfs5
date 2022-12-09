@@ -1,6 +1,6 @@
-import { Cargo } from './../../../../models/cargo';
+import { Cargo } from '../../models/cargo';
 import { Router } from '@angular/router';
-import { CargoService } from './../../../../services/cargo.service';
+import { CargoService } from '../../services/cargo.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
