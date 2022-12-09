@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Chamado } from './../../../models/chamado';
 import { Cliente } from './../../../models/cliente';
 import { Component, OnInit } from '@angular/core';
+import { StatusChamado } from 'src/app/enums/status-chamado';
 
 @Component({
   selector: 'app-edit-chamado',
@@ -15,6 +16,7 @@ export class EditChamadoComponent implements OnInit {
 
   public clientes: Cliente[] = [];
   public funcionarios: any = [];
+  public chamados: Chamado[] = [];
 
   private funcionarioEmpty: any = {
     id: NaN,
@@ -37,7 +39,7 @@ export class EditChamadoComponent implements OnInit {
 
   public chamado: Chamado = {
     titulo: "",
-    status: "",
+    status: StatusChamado.RECEBIDO,
     descricao: "",
     cliente: this.clienteEmpty,
     funcionario: this.funcionarioEmpty
