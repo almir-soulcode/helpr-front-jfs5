@@ -7,6 +7,7 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewComponent } from './new/new.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CargosRoutingModule,
     ComponentsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ]
 })
 export class CargosModule { }
