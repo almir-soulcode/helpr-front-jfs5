@@ -1,4 +1,4 @@
-import { NewCargoComponent } from './cargos/new-cargo/new-cargo.component';
+import { NewCargoComponent } from '../new-cargo/new-cargo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './../../shared/material/material.module';
 import { NgModule } from '@angular/core';

@@ -1,4 +1,4 @@
-import { NewCargoComponent } from './cargos/new-cargo/new-cargo.component';
+import { NewCargoComponent } from '../new-cargo/new-cargo.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CargosComponent } from './cargos/cargos.component';

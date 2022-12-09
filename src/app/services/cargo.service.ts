@@ -31,4 +31,16 @@ export class CargoService {
       })
     );
   }
+
+  public delete(idCargo: number): Observable<Cargo> {
+    return this.http.delete<Cargo>(`${API_CONFIG.baseUrl}/cargos/${idCargo}`).pipe(
+      catchError(error => {
+        alert("Erro ao excluir cliente.");
+        console.error(error);
+        return EMPTY;
+      })
+    );
+  }
+
 }
+
