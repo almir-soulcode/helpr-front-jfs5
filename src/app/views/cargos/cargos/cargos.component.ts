@@ -22,8 +22,8 @@ export class CargosComponent implements OnInit {
   }
 
   private initializeTable(): void {
-    this.cargoService.findAll().subscribe(cargo => {
-      this.dataSource = new MatTableDataSource<Cargo>(cargo);
+    this.cargoService.findAll().subscribe(cargos => {
+      this.dataSource = new MatTableDataSource<Cargo>(cargos);
     });
   }
 
