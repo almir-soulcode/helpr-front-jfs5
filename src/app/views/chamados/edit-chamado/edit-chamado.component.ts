@@ -1,7 +1,7 @@
 import { NgForm } from '@angular/forms';
 import { ClienteService } from './../../../services/cliente.service';
 import { ChamadoService } from './../../../services/chamado.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Chamado } from './../../../models/chamado';
 import { Cliente } from './../../../models/cliente';
 import { Component, OnInit } from '@angular/core';
@@ -48,7 +48,8 @@ export class EditChamadoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private chamadoService: ChamadoService,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -91,6 +92,7 @@ export class EditChamadoComponent implements OnInit {
     if (form.valid) {
       this.chamadoService.update(this.chamado).subscribe(chamado => {
         alert("Chamado editado.");
+        this.router.navigate(["/chamados"]);
       });
     }
     else {

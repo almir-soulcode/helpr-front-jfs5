@@ -32,10 +32,11 @@
                     <mat-option value="RECEBIDO">RECEBIDO</mat-option>
                     <mat-option value="ATRIBUIDO">ATRIBUIDO</mat-option>
                     <mat-option value="CONCLUIDO">CONCLUIDO</mat-option>
+                    <mat-option value="ARQUIVADO">ARQUIVADO</mat-option>
                 </mat-select>
             </mat-form-field>
 
-            <button type="submit" mat-raised-button color="primary" (click)="update(formEdit)" routerLink="/chamados">Editar</button>
+            <button type="submit" mat-raised-button color="primary" (click)="update(formEdit)">Editar</button>
             <a type="button" mat-raised-button color="warn" routerLink="/chamados">Cancelar</a>
         </form>
     </ng-container>
