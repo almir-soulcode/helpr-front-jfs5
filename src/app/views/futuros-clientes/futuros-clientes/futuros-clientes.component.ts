@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class FuturosClientesComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'email', 'cpf', 'telefone', 'editar', 'excluir'];
+  displayedColumns: string[] = ['id', 'nome', 'email', 'cpf', 'editar', 'excluir'];
   futuroCliente: FuturoCliente[] = [];
   dataSource = new MatTableDataSource<FuturoCliente>(this.futuroCliente);
   constructor(
