@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditCargoComponent } from './edit-cargo/edit-cargo.component';
 
 
+
 @NgModule({
   declarations: [
     CargosComponent,
@@ -23,6 +24,7 @@ import { EditCargoComponent } from './edit-cargo/edit-cargo.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule
+
   ]
 })
 export class CargosModule { }

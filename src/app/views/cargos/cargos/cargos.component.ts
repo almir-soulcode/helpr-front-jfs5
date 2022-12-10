@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailsCargoComponent } from 'src/app/components/details-cargo/details-cargo.component';
 import { Cargo } from 'src/app/models/cargo';
 import { CargoService } from 'src/app/services/cargo.service';
 
@@ -9,11 +11,11 @@ import { CargoService } from 'src/app/services/cargo.service';
 })
 export class CargosComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'descricao', 'salario', 'editar', 'excluir'];
+  displayedColumns: string[] = ['id', 'nome', 'descricao', 'salario', 'detalhes', 'editar', 'excluir'];
 
   dataSource: Cargo[] = [];
 
-  constructor(private cargoService: CargoService) { }
+  constructor(private cargoService: CargoService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.initializeTable()
@@ -34,5 +36,10 @@ export class CargosComponent implements OnInit {
     )
 
   }
-
+  public openDetails(cargo: Cargo): void{
+    this.dialog.open(DetailsCargoComponent, {
+      width: "400px",
+      data: cargo
+    });
+  }
 }
