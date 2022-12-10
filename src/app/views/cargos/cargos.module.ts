@@ -6,14 +6,16 @@ import { CargosComponent } from './cargos/cargos.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { NewComponent } from './new/new.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditCargoComponent } from './edit-cargo/edit-cargo.component';
 
 
 
 @NgModule({
   declarations: [
     CargosComponent,
-    NewComponent
+    NewComponent,
+    EditCargoComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ComponentsModule,
     MaterialModule,
     ReactiveFormsModule,
+    FormsModule
+
   ]
 })
 export class CargosModule { }
