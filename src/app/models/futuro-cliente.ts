@@ -1,5 +1,5 @@
 export interface FuturoCliente {
-    id?: FuturoCliente;
+    idFuturoCliente?: number;
     nome: string;
     telefone: string;
     email: string;

@@ -10,33 +10,33 @@
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef> Id </th>
-                <td mat-cell *matCellDef="let cliente"> {{cliente.id}} </td>
+                <td mat-cell *matCellDef="let futurocliente"> {{futurocliente.idFuturoCliente}} </td>
             </ng-container>
 
             <ng-container matColumnDef="nome">
                 <th mat-header-cell *matHeaderCellDef> Nome </th>
-                <td mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
+                <td mat-cell *matCellDef="let futurocliente"> {{futurocliente.nome}} </td>
             </ng-container>
 
             <ng-container matColumnDef="cpf">
                 <th mat-header-cell *matHeaderCellDef> CPF </th>
-                <td mat-cell *matCellDef="let cliente"> {{cliente.cpf}} </td>
+                <td mat-cell *matCellDef="let futurocliente"> {{futurocliente.cpf}} </td>
             </ng-container>
 
             <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef> E-mail </th>
-                <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
+                <td mat-cell *matCellDef="let futurocliente"> {{futurocliente.email}} </td>
             </ng-container>
 
             <ng-container matColumnDef="telefone">
                 <th mat-header-cell *matHeaderCellDef> Telefone </th>
-                <td mat-cell *matCellDef="let cliente"> {{cliente.telefone}} </td>
+                <td mat-cell *matCellDef="let futurocliente"> {{futurocliente.telefone}} </td>
             </ng-container>
 
             <ng-container matColumnDef="editar">
                 <th mat-header-cell *matHeaderCellDef> Editar </th>
-                <td mat-cell *matCellDef="let cliente">
-                    <a mat-icon-button [routerLink]="['edit', cliente.id]">
+                <td mat-cell *matCellDef="let futurocliente">
+                    <a mat-icon-button [routerLink]="['edit', futurocliente.idFuturoCliente]">
                         <i class="material-icons">edit</i>
                     </a>
                 </td>
@@ -44,8 +44,8 @@
 
             <ng-container matColumnDef="excluir">
                 <th mat-header-cell *matHeaderCellDef> Excluir </th>
-                <td mat-cell *matCellDef="let cliente">
-                    <button mat-icon-button (click)="delete(cliente.id)">
+                <td mat-cell *matCellDef="let fututocliente">
+                    <button mat-icon-button (click)="delete(fututocliente.idFuturoCliente)">
                         <i class="material-icons">delete</i>
                     </button>
                 </td>
