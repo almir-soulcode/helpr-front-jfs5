@@ -1,0 +1,21 @@
+<app-nav-bar>
+    <ng-container>
+        <h2>Cadastrar novo cargo</h2>
+        <form [formGroup]="formCargo">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input type="text" name="nome" matInput placeholder="Ex. Gabriel Braga" formControlName="nome">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Descrição</mat-label>
+                <input type="text" name="descricao" matInput placeholder="Ex. 000.000.000-00" formControlName="descricao">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Salário</mat-label>
+                <input type="text" name="salario" matInput placeholder="Ex. gabriel@mail.com" formControlName="salario">
+            </mat-form-field>
+            <button type="submit" mat-raised-button color="primary" (click)="create()">Cadastrar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/clientes">Cancelar</a>
+        </form>
+    </ng-container>
+</app-nav-bar>
