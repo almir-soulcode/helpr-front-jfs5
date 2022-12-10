@@ -6,11 +6,15 @@ import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NewFuncionarioComponent } from './new-funcionario/new-funcionario.component';
+import { EditFuncionarioComponent } from './edit-funcionario/edit-funcionario.component';
+
 
 @NgModule({
   declarations: [
-    FuncionarioComponent
+    FuncionarioComponent,
+    NewFuncionarioComponent,
+    EditFuncionarioComponent
   ],
   imports: [
     CommonModule,
@@ -18,9 +22,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask'
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    ComponentsModule,
-    NgxMaskModule.forRoot(),
+    ComponentsModule
   ]
 })
 export class FuncionarioModule { }
-export const options: Partial<null|IConfig> | (() => Partial<IConfig>) = null;

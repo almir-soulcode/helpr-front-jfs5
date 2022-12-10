@@ -11,7 +11,7 @@ export class FuncionarioComponent implements OnInit {
 
   public isLoadTable: boolean = false;
 
-  displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'telefone', 'editar', 'excluir'];
+  displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'cargo', 'editar', 'excluir'];
   dataSource: Funcionario[] = [];
 
   constructor(private funcionarioService: FuncionarioService) { }

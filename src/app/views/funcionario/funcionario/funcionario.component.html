@@ -20,7 +20,7 @@
 
             <ng-container matColumnDef="cpf">
                 <th mat-header-cell *matHeaderCellDef> CPF </th>
-                <td mat-cell *matCellDef="let funcionario"> {{funcionario.cpf|mask:"000.000.000-00"}} </td>
+                <td mat-cell *matCellDef="let funcionario"> {{funcionario.cpf}} </td>
             </ng-container>
 
             <ng-container matColumnDef="email">
@@ -28,9 +28,9 @@
                 <td mat-cell *matCellDef="let funcionario"> {{funcionario.email}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="telefone">
-                <th mat-header-cell *matHeaderCellDef> Telefone </th>
-                <td mat-cell *matCellDef="let funcionario"> {{funcionario.telefone|mask:"(000)0000-0000"}} </td>
+            <ng-container matColumnDef="cargo">
+                <th mat-header-cell *matHeaderCellDef> Cargo </th>
+                <td mat-cell *matCellDef="let funcionario"> {{funcionario.cargo.nome}} </td>
             </ng-container>
 
             <ng-container matColumnDef="editar">
@@ -54,6 +54,5 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <mat-spinner class="spinner" mode="indeterminate" *ngIf="isLoadTable" color="accent" [diameter]="80"></mat-spinner>
     </ng-container>
 </app-nav-bar>
