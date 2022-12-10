@@ -33,10 +33,44 @@ public findById(id: string): Observable<Funcionario> {
   );
 }
 
+public create(funcionario: Funcionario): Observable<Funcionario> {
+  const data = {
+    nome: funcionario.nome,
+    email: funcionario.email,
+    cpf: funcionario.cpf,
+    idCargo: funcionario.cargo.idCargo,
+    senha: funcionario.senha
+  }
+  return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, data).pipe(
+    catchError(error => {
+      alert("Erro ao criar novo funcionario.");
+      console.error(error);
+      return EMPTY;
+    })
+  );
+}
+
 public delete(id: number): Observable<Funcionario> {
   return this.http.delete<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
     catchError(error => {
       alert("Erro ao excluir funcionario.");
+      console.error(error);
+      return EMPTY;
+    })
+  );
+}
+
+public update(funcionario: Funcionario): Observable<Funcionario> {
+  const data = {
+    nome: funcionario.nome,
+    email: funcionario.email,
+    cpf: funcionario.cpf,
+    idCargo: funcionario.cargo.idCargo,
+    senha: funcionario.senha
+  }
+  return this.http.put<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${funcionario.id}`,data).pipe(
+    catchError(error => {
+      alert("Erro ao inserir funcionario ");
       console.error(error);
       return EMPTY;
     })

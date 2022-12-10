@@ -1,0 +1,13 @@
+form a,
+form button {
+    margin-left: 20px;
+    float: right;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.margin {
+    margin-right: 15px;
+}
