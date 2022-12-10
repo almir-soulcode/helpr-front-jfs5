@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CargosComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nome', 'descricao', 'salario', 'editar', 'excluir'];
+  displayedColumns: string[] = ['id', 'nome', 'descricao', 'salario', 'excluir'];
   cargo: Cargo[] = [];
   dataSource = new MatTableDataSource<Cargo>(this.cargo);
 
@@ -31,7 +31,7 @@ export class CargosComponent implements OnInit {
     });
   }
 
-  /* public delete(id: number): void {
+  public delete(id: number): void {
     let ok = confirm("Tem certeza que deseja excluir?");
     if(ok) {
       this.cargoService.delete(id).subscribe(() => {
@@ -39,7 +39,7 @@ export class CargosComponent implements OnInit {
         this.initializeTable();
       });
     }
-  } */
+  }
 
 
   applyFilter(event: Event) {
