@@ -15,7 +15,7 @@
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef> Id </th>
-                <td mat-cell *matCellDef="let cargo"> {{cargo.id}} </td>
+                <td mat-cell *matCellDef="let cargo"> {{cargo.idCargo}} </td>
             </ng-container>
 
             <ng-container matColumnDef="nome">
@@ -33,19 +33,10 @@
                 <td mat-cell *matCellDef="let cargo"> {{cargo.salario}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="editar">
-                <th mat-header-cell *matHeaderCellDef> Editar </th>
-                <td mat-cell *matCellDef="let cargo">
-                    <a mat-icon-button [routerLink]="['edit', cargo.id]">
-                        <i class="material-icons">edit</i>
-                    </a>
-                </td>
-            </ng-container>
-
             <ng-container matColumnDef="excluir">
                 <th mat-header-cell *matHeaderCellDef> Excluir </th>
                 <td mat-cell *matCellDef="let cargo">
-                    <button mat-icon-button (click)="delete(cargo.id)">
+                    <button mat-icon-button (click)="delete(cargo.idCargo)">
                         <i class="material-icons">delete</i>
                     </button>
                 </td>
