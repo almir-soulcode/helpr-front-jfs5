@@ -11,6 +11,8 @@ import { EditClienteComponent } from './edit-cliente/edit-cliente.component';
 import { FuturoclienteComponent } from './futurocliente/futurocliente.component';
 import { NgxMaskModule } from 'ngx-mask';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { NgxMaskModule } from 'ngx-mask';
     ReactiveFormsModule,
     FormsModule,
     NgxMaskModule.forRoot()
+    
+    
     
   ]
 })

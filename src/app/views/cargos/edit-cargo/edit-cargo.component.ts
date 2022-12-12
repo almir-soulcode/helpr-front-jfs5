@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Cargo } from 'src/app/models/cargo';
 import { CargoService } from 'src/app/services/cargo.service';
 
@@ -20,7 +21,8 @@ export class EditCargoComponent implements OnInit {
   constructor(
     private cargoService: CargoService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -41,12 +43,12 @@ export class EditCargoComponent implements OnInit {
     if(formEdit.valid) {
       this.cargoService.update(this.cargo).subscribe(
         (ok)=> {
-          alert('cargo salvo com sucesso!')
+          this.toastr.success('cargo salvo com sucesso!')
           this.router.navigateByUrl('/cargos')
         }
       )
     } else {
-      alert('dados inválidos!')
+      this.toastr.error('dados inválidos!')
     }
     
   }

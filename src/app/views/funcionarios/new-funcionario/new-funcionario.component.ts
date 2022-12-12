@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Cargo } from 'src/app/models/cargo';
 import { Funcionario } from 'src/app/models/funcionario';
 import { CargoService } from 'src/app/services/cargo.service';
@@ -21,7 +22,8 @@ export class NewFuncionarioComponent implements OnInit {
     formBuilder: FormBuilder, 
     private funcionarioService: FuncionarioService,
     private cargoService: CargoService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
     ) {
     this.formFuncionario = formBuilder.group({
       nome: ['', [Validators.required]],
@@ -50,10 +52,13 @@ export class NewFuncionarioComponent implements OnInit {
       const funcionario: Funcionario = this.formFuncionario.value
       this.funcionarioService.save(funcionario).subscribe(
         (response => {
-          alert('Funcionário cadastrado com sucesso!')
+          this.toastr.success('Funcionário cadastrado com sucesso!')
           this.router.navigate(["/funcionarios"]);
         })
       )
+    }else{
+      this.toastr.error("Erro ao criar Funcionário")
+
     }
   }
 

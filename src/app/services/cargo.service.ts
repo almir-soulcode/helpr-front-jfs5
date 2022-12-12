@@ -3,18 +3,19 @@ import { Injectable } from '@angular/core';
 import { catchError, EMPTY, Observable } from 'rxjs';
 import { Cargo } from '../models/cargo';
 import { API_CONFIG } from '../config/api.config';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CargoService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private toastr: ToastrService) { }
 
   public findAll(): Observable<Cargo[]> {
     return this.http.get<Cargo[]>(`${API_CONFIG.baseUrl}/cargos`).pipe(
       catchError(error => {
-        alert('Erro ao cadastrar funcionário!')
+        this.toastr.error('Erro ao cadastrar funcionário!')
         console.error(error)
         return EMPTY
       })
@@ -24,7 +25,7 @@ export class CargoService {
   public create(cargo: Cargo): Observable<Cargo>{
     return this.http.post<Cargo>(`${API_CONFIG.baseUrl}/cargos`, cargo).pipe(
       catchError(error => {
-        alert(`Erro ao cadastrar cargo`)
+        this.toastr.error(`Erro ao cadastrar cargo`)
         console.error(error)
         return EMPTY
       })

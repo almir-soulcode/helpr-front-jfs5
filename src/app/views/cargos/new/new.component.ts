@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { CargoService } from 'src/app/services/cargo.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { CargoService } from 'src/app/services/cargo.service';
 export class NewComponent implements OnInit {
 public formCargo: FormGroup
 
-  constructor(formBuilder: FormBuilder, private cargoService: CargoService, private router: Router) {
+  constructor(formBuilder: FormBuilder, private cargoService: CargoService, private router: Router,private toastr: ToastrService) {
     this.formCargo = formBuilder.group({
       nome: ['', [Validators.required]],
       descricao: ['', [Validators.required]],
@@ -25,12 +26,12 @@ public formCargo: FormGroup
     if(this.formCargo.valid){
       this.cargoService.create(this.formCargo.value).subscribe(
         () => {
-          alert("Cargo cadastrado com sucesso !")
+          this.toastr.success("Cargo cadastrado com sucesso !")
           this.router.navigateByUrl("/cargos")
         }
       )
     }else{
-      alert(`Dados Inválidos`)
+      this.toastr.error(`Dados Inválidos`)
     }
     
   }

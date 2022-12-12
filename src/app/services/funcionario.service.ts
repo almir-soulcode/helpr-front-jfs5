@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { catchError, EMPTY, Observable } from 'rxjs';
 import { API_CONFIG } from '../config/api.config';
 import { Cargo } from '../models/cargo';
@@ -10,12 +11,12 @@ import { Funcionario } from '../models/funcionario';
 })
 export class FuncionarioService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private toastr: ToastrService) { }
 
   public findAll(): Observable<Funcionario[]>{
     return this.http.get<Funcionario[]>(`${API_CONFIG.baseUrl}/funcionarios`).pipe(
       catchError(error => {
-        alert('Erro ao buscar funcionários!')
+        this.toastr.error('Erro ao buscar funcionários!')
         console.error(error)
         return EMPTY
       })
@@ -33,7 +34,7 @@ export class FuncionarioService {
     }    
     return this.http.post<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios`, funcionarioDTO).pipe(
       catchError(error => {
-        alert('Erro ao cadastrar funcionário!')
+        this.toastr.error('Erro ao cadastrar funcionário!')
         console.error(error)
         return EMPTY
       })
@@ -43,7 +44,7 @@ export class FuncionarioService {
   public findById(id: string): Observable<Funcionario> {
     return this.http.get<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
       catchError(error => {
-        alert("Erro ao buscar funcionário por id!");
+        this.toastr.error("Erro ao buscar funcionário por id!");
         console.error(error);
         return EMPTY;
       })
@@ -62,7 +63,7 @@ export class FuncionarioService {
     alert
     return this.http.put<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${funcionario.id}`, funcionarioDTO).pipe(
       catchError(error => {
-        alert("Erro ao atualizar funcionário!");
+        this.toastr.error("Erro ao atualizar funcionário!");
         console.error(error);
         return EMPTY;
       })
@@ -73,7 +74,7 @@ export class FuncionarioService {
   public delete(id: number): Observable<Funcionario> {
     return this.http.delete<Funcionario>(`${API_CONFIG.baseUrl}/funcionarios/${id}`).pipe(
       catchError(error => {
-        alert("Erro ao excluir funcionário!");
+        this.toastr.error("Erro ao excluir funcionário!");
         console.error(error);
         return EMPTY;
       })

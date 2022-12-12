@@ -3,6 +3,7 @@ import { AuthService } from './../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.formLogin = formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
@@ -32,12 +34,12 @@ export class LoginComponent implements OnInit {
       // PROCESSO DE AUTENTICAR
       const credenciais: Credenciais = this.formLogin.value;
       this.authService.authenticate(credenciais).subscribe(response => {
-        alert("Bem-vindo(a)!");
+        this.toastr.success("Bem-vindo(a)!");
         this.router.navigate(["/home"]);
       });
     }
     else {
-      alert("Dados inválidos.");
+      this.toastr.error("Dados inválidos.");
     }
   }
 }
