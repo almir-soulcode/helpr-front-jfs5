@@ -9,6 +9,7 @@ import { AvatarPipe } from 'src/app/pipes/avatar.pipe';
 import { NewFuncionarioComponent } from './new-funcionario/new-funcionario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditFuncionarioComponent } from './edit-funcionario/edit-funcionario.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EditFuncionarioComponent } from './edit-funcionario/edit-funcionario.co
     MaterialModule,
     ComponentsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule.forRoot()
     
   ]
 })
