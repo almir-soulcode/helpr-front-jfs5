@@ -9,6 +9,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,6 +25,8 @@ import { JwtModule } from '@auth0/angular-jwt';
     HttpClientModule,
     JwtModule
   ],
+    
+  
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
