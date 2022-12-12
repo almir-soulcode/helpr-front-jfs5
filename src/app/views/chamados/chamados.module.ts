@@ -19,7 +19,7 @@ import { NewChamadoComponent } from './new-chamado/new-chamado.component';
     ChamadosRoutingModule,
     ComponentsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class ChamadosModule { }

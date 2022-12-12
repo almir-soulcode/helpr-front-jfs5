@@ -1,0 +1,15 @@
+<div class= "dialog-container">
+    <mat-dialog-actions>
+    <button mat-button mat-dialog-close>X</button>
+    </mat-dialog-actions>
+   
+    <h3>{{chamado.titulo}}</h3>
+
+    <span><strong>Id:</strong>{{chamado.idChamado}}</span>
+    <span><strong>Título:</strong>{{chamado.titulo}}</span>
+    <span><strong>Descrição: </strong>{{chamado.descricao}}</span>
+    <span><strong>Data de Abertura: </strong>{{chamado.dataAbertura}}</span>
+    <span><strong>Status: </strong>{{chamado.status}}</span>
+    <span><strong>Funcionário: </strong>{{chamado.funcionario.nome}}</span>
+    <span><strong>Cliente: </strong>{{chamado.cliente.nome}}</span>
+</div>
