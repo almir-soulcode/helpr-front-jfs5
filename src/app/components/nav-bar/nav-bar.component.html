@@ -14,8 +14,22 @@
                 <i class="material-icons">perm_phone_msg</i>
                 Chamados
             </a>
+            <a mat-list-item routerLink="/funcionarios" routerLinkActive="active">
+              <i class="material-icons">support_agent</i>
+              Funcionários
+          </a>
+            <a mat-list-item routerLink="/cargos" routerLinkActive="active">
+              <i class="material-icons">badge</i>
+              Cargos
+          </a>
+
+          <a mat-list-item routerLink="/faq" routerLinkActive="active">
+            <i class="material-icons">quiz</i>
+            FAQ
+        </a>
+
             <a mat-list-item (click)="logout()" routerLinkActive="active">
-                <i class="material-icons">logout</i>
+             <i class="material-icons">logout</i>
                 Logout
             </a>
         </mat-nav-list>
@@ -27,7 +41,7 @@
                 <i class="material-icons">menu</i>
             </button>
         </mat-toolbar>
-        
+
         <div class="container">
             <ng-content></ng-content>
         </div>

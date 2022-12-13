@@ -1,10 +1,11 @@
 import { NgForm } from '@angular/forms';
 import { ClienteService } from './../../../services/cliente.service';
 import { ChamadoService } from './../../../services/chamado.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Chamado } from './../../../models/chamado';
 import { Cliente } from './../../../models/cliente';
 import { Component, OnInit } from '@angular/core';
+import { StatusChamado } from 'src/app/enums/status-chamado';
 
 @Component({
   selector: 'app-edit-chamado',
@@ -15,6 +16,7 @@ export class EditChamadoComponent implements OnInit {
 
   public clientes: Cliente[] = [];
   public funcionarios: any = [];
+  public chamados: Chamado[] = [];
 
   private funcionarioEmpty: any = {
     id: NaN,
@@ -37,7 +39,7 @@ export class EditChamadoComponent implements OnInit {
 
   public chamado: Chamado = {
     titulo: "",
-    status: "",
+    status: StatusChamado.RECEBIDO,
     descricao: "",
     cliente: this.clienteEmpty,
     funcionario: this.funcionarioEmpty
@@ -46,7 +48,8 @@ export class EditChamadoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private chamadoService: ChamadoService,
-    private clienteService: ClienteService
+    private clienteService: ClienteService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -89,6 +92,7 @@ export class EditChamadoComponent implements OnInit {
     if (form.valid) {
       this.chamadoService.update(this.chamado).subscribe(chamado => {
         alert("Chamado editado.");
+        this.router.navigate(["/chamados"]);
       });
     }
     else {
